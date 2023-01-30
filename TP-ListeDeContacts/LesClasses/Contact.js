@@ -1,4 +1,4 @@
-export default class Person {
+export default class Contact {
     constructor(sex, name, firstname, birthDate, tel, email){
         this.sex = sex;
         this.name = name;
