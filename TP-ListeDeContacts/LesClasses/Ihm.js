@@ -7,6 +7,14 @@ export class Ihm {
         this.tableauHTMLResult = tableauHTMLResult;
     }
         //les méthodes nécessaires:
+
+    demarrer(){
+        this.formulaire.addEventListener("submit", (e) => {
+            e.preventDefault();
+            this.ajouter();
+        })
+    }
+
     ajouter() {
         //Récupérer les champs et créer un contact:
         const genre = this.formulaire.queryselector("input[name='genre']").value;
