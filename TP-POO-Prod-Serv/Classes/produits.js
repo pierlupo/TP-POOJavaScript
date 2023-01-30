@@ -1,6 +1,4 @@
 import Article from "./Article.js";
-import Article from "./Article.js";
-
 
 export default class Produits extends Article{
     constructor(titre, prix, description, stock){

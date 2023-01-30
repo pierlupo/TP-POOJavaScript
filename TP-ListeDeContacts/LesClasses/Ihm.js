@@ -17,7 +17,7 @@ export class Ihm {
 
     ajouter() {
         //Récupérer les champs et créer un contact:
-        const genre = this.formulaire.querySelector("input[name='genre']").value;
+        const genre = this.formulaire.querySelector("input[name='genre']:checked").value;
         const nom= this.formulaire.querySelector("input[name='nom']").value;
         const prenom= this.formulaire.querySelector("input[name='prenom']").value;
         const phoneTel= this.formulaire.querySelector("input[name='phoneTel']").value;

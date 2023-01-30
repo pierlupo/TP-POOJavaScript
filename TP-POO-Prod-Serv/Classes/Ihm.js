@@ -2,86 +2,86 @@ import Produits from "./produits.js";
 import Services from "./services.js";
 
 export default class Ihm {
-    constructor(formulaire,tableauHTMLResult1,tableauHTMLResult2 ){
-        this.products = [];
-        this.serVices = [];
-        this.formulaire = formulaire;
-        this.tableauHTMLResult1 = tableauHTMLResult1;
-        this.tableauHTMLResult2 = tableauHTMLResult2;
-    }
 
-    demarrer(){
-        this.formulaire.addEventListener("submit", (e) => {
-            e.preventDefault();
-            this.ajouter();
-        })
-    }
+constructor(formulaire, tableauHTMLResult1, tableauHTMLResult2) {
+    this.products = [];
+    this.serVices = [];
+    this.formulaire = formulaire;
+    this.tableauHTMLResult1 = tableauHTMLResult1;
+    this.tableauHTMLResult2 = tableauHTMLResult2;
+}
 
-    ajouter() {
-        //Récupérer les champs et créer un contact:
-        const titre = this.formulaire.querySelector("input[name='titre']").value;
-        const description= this.formulaire.querySelector("input[name='description']").value;
-        const prix= this.formulaire.querySelector("input[name='prix']").value;
-        const stock= this.formulaire.querySelector("input[name='stock']").value;
-        const domaine= this.formulaire.querySelector("input[name='domaine']").value;
-        
-        //const resetInput = this.formulaire.querySelectorAll('.form-control').value;
+demarrer() {
 
-        const produit = new Produits(titre, description, prix, stock);
-        this.products.push(produit);
-        this.afficher(produit);
-        //resetInput.innerHTML = "";
+      this.formulaire.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const article0 = this.formulaire.querySelector("input[name='article']:checked").value
+      //this.ajouter()
+      if(article0 == "Produit"){
+        //const inputDomaine = document.querySelector('#domain');
+        //inputDomaine.style.display = "none";
+        this.ajouterProd();
+      }else if(article0 == "Service"){
+        //const inputStok = document.querySelector('#stok');
+        //inputStok.style.display = "none";
+      this.ajouterServ();
+      }
+    });
+  }
 
-        const service = new Services(titre, description, prix, domaine);
-        this.serVices.push(service);
-        this.afficher(service);
-        
-    }
+ajouterProd() {
 
-    afficher(p){
-        //ajouter un contact à l'affichage html
-        this.tableauHTMLResult1.innerHTML += `<tr>
+    
+    const titre = this.formulaire.querySelector("input[name='titre']").value;
+    const description = this.formulaire.querySelector("input[name='description']").value;
+    const prix = this.formulaire.querySelector("input[name='prix']").value;
+    const stock = this.formulaire.querySelector("input[name='stock']").value;
+
+    //const resetInput = this.formulaire.querySelectorAll('.form-control').value;
+
+    const produit = new Produits(titre, description, prix, stock);
+    this.products.push(produit);
+    this.afficherProd(produit);
+    //resetInput.innerHTML = "";
+}
+
+afficherProd(p) {
+
+    this.tableauHTMLResult1.innerHTML += `<tr>
         <td>${p.titre}</td>
         <td>${p.description}</td>
         <td>${p.prix}</td>
         <td>${p.stock}</td>
         </tr>
         `;
-    }
+  }
+
+ajouterServ() {
     
-    afficher(s){
-            //ajouter un contact à l'affichage html
-            this.tableauHTMLResult2.innerHTML += `<tr>
-            <td>${s.titre}</td>
-            <td>${s.description}</td>
-            <td>${s.prix}</td>
-            <td>${s.domaine}</td>
-            </tr>
-            `;
-        }
-        //this.contacts = [];
-        // this.tableauHTMLResult.innerHTML = "";
-        // this.contacts.forEach(c => {
-        //     this.tableauHTMLResult.innerHTML += `<tr>
-        //     <td>${c.genre}</td>
-        //     <td>${c.nom}</td>
-        //     <td>${c.prenom}</td>
-        //     <td>${c.phoneTel}</td>
-        //     <td>${c.dateNaissance}</td>
-        //     <td>${c.mail}</td>
-        //     </tr>
-        //     `;
-        // })
+    //const article = this.formulaire.querySelector("input[name='article']:checked").value
+    const titre = this.formulaire.querySelector("input[name='titre']").value;
+    const description = this.formulaire.querySelector("input[name='description']").value;
+    const prix = this.formulaire.querySelector("input[name='prix']").value;
+    const domaine = this.formulaire.querySelector(
+      "input[name='domaine']"
+    ).value;
+
+    //const resetInput = this.formulaire.querySelectorAll('.form-control').value;
+    const service = new Services(titre, description, prix, domaine);
+    this.serVices.push(service);
+    this.afficherServ(service);
+
 }
 
-    /*getter et setter */
-    // set nom(n){
-    //     this.nom = n;
-    // }
-    // get nom(){
-    // return this.nom; 
-    // }
+afficherServ(s) {
+    console.log(this.tableauHTMLResult2);
+    this.tableauHTMLResult2.innerHTML += `<tr>
+        <td>${s.titre}</td>
+        <td>${s.description}</td>
+        <td>${s.prix}</td>
+        <td>${s.domaine}</td>
+        </tr>
+        `;
+  }
 
-
-    
-
+}
