@@ -12,7 +12,10 @@ constructor(formulaire, tableauHTMLResult1, tableauHTMLResult2) {
 }
 
 demarrer() {
-
+      const radios = this.formulaire.querySelector('#parentRadio');
+      radios.addEventListener('change', (e)=>{
+        this.switchProdService(e.target.value)
+      })
       this.formulaire.addEventListener("submit", (e) => {
       e.preventDefault();
       const article0 = this.formulaire.querySelector("input[name='article']:checked").value
@@ -26,6 +29,7 @@ demarrer() {
         //inputStok.style.display = "none";
       this.ajouterServ();
       }
+
     });
   }
 
@@ -84,4 +88,21 @@ afficherServ(s) {
         `;
   }
 
-}
+switchProdService(type){
+    const inputStok = this.formulaire.querySelector('input[name ="stock"]');
+    const inputDomaine = this.formulaire.querySelector('input[name ="domaine"]');
+if(type == "Produit") {
+
+            inputDomaine.style.display = "none";
+            inputStok.style.display = "block";
+            
+            } else if (type == "Service") {
+            
+            inputStok.style.display = "none";
+            inputDomaine.style.display = "block";
+
+            }
+        }
+    }
+
+
