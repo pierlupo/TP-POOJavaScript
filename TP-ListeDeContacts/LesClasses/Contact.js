@@ -10,7 +10,7 @@ export default class Contact {
     }
 
     Display(){
-       return `${this.genre} ${this.nom} ${this.prenom} ${this.dateNaissance} ${this.phoneTel} ${this.mail}. `;
+       return `${this.genre} ${this.nom} ${this.prenom} ${this.dateNaissance} ${this.phoneTel} ${this.mail} `;
     }
     /*getter et setter */
     // set nom(n){
