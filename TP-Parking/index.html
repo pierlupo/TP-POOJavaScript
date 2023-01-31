@@ -26,19 +26,21 @@
       <div id="position_btn">
         <button id="myBtnmod" class="myBtnmodal">Payer son stationnement</button>
       </div>
+      
       <div id="myModal" class="modal">
         
         <div class="modal-content">
             <span class="close">&times;</span>
             <h1>PARKING 3000</h1>
-            
+            <form id="formParking" class="container">
             <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Saisir son immatriculation" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="text" class="form-control" placeholder="Saisir son immatriculation" aria-label="Recipient's username" aria-describedby="button-addon2" id="plaque">
             <button class="btn btn-success" type="button" id="button-addon2">Payer</button>
             </div>
-            <button class="col btn btn-secondary text-white" type="submit">Obtenir un ticket</button>
-            
-          <div id="result"></div>
+            <button class="col btn btn-primary text-white" id="btn1" type="submit">Obtenir un ticket</button>
+            </form>
+            <div id="result"></div>
+            <div id="result2"></div>
         </div>
       </div>
     </main>
